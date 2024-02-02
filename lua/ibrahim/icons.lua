@@ -1,0 +1,62 @@
+return {
+    diagnostics = {
+        -- Error = " ",
+        -- Warn = " ",
+        -- Hint = " ",
+        -- Info = " ",
+        Error = " ",
+        Warn = " ",
+        -- Hint = " ",
+        Hint = "󰌵 ",
+        Info = " ",
+    },
+    git = {
+        -- Change type
+        added     = " ",
+        -- added     = "✚"
+        modified  = " ",
+        -- modified  = ""
+        removed   = " ",
+        deleted   = "✖",
+        renamed   = "",
+        -- Status type
+        untracked = "",
+        ignored   = "",
+        unstaged  = "",
+        staged    = "",
+        conflict  = "",
+    },
+    gitsigns = {
+        -- Signs that will appear in the statusline column
+        added    = "✚",
+        modified = "",
+        deleted  = "✖",
+    },
+    lsp = {
+        Text = "",
+        Method = "",
+        Function = "",
+        Constructor = "",
+        Field = "",
+        Variable = "",
+        Class = "ﴯ",
+        Interface = "",
+        Module = "",
+        Property = "ﰠ",
+        Unit = "",
+        Value = "",
+        Enum = "",
+        Keyword = "",
+        Snippet = "",
+        Color = "",
+        File = "",
+        Reference = "",
+        Folder = "",
+        EnumMember = "",
+        Constant = "",
+        Struct = "",
+        Event = "",
+        Operator = "",
+        TypeParameter = "",
+    },
+}
