@@ -71,19 +71,19 @@ opt.completeopt = "menuone,noselect"
 
 
 -- Set up diagnostics
--- local signs = require("ibrahim.icons").diagnostics
--- for type, icon in pairs(signs) do
---     local hl = "DiagnosticSign" .. type
---     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
--- end
--- vim.diagnostic.config({
---     underline = true,
---     update_in_insert = false,
---     severity_sort = true,
---     float = {
---         source = "always",
---     },
--- })
+local signs = require("ibrahim.icons").diagnostics
+for type, icon in pairs(signs) do
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+vim.diagnostic.config({
+    underline = true,
+    update_in_insert = false,
+    severity_sort = true,
+    float = {
+        source = "always",
+    },
+})
 
 if os.IS_WINDOWS then
     require("ibrahim.settings_windows")
