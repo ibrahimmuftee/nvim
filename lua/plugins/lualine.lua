@@ -9,7 +9,7 @@ return {
         local icons = require("ibrahim.icons")
         return {
             options = {
-                theme = "dracula-nvim",
+                theme = "gruvbox",
                 globalstatus = true,
                 disabled_filetypes = {
                     statusline = { "lazy" },
