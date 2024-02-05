@@ -34,10 +34,6 @@ return {
             -- Disable this default since I use this shortcut for Telescope
             ["<C-p>"] = false,
         },
-
-        view_options = {
-            show_hidden = true,
-        },
     },
     config = true,
     -- config = function(_, opts)
