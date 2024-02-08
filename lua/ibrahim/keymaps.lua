@@ -37,10 +37,16 @@ map("x", "<leader>p", '"_dP')
 map({ "n", "v" }, "<leader>d", '"_dP')
 
 -- Easier split navigation
-map("n", "<C-h>", "<C-w>h")
-map("n", "<C-j>", "<C-w>j")
-map("n", "<C-k>", "<C-w>k")
-map("n", "<C-l>", "<C-w>l")
+-- map("n", "<C-h>", "<C-w>h")
+-- map("n", "<C-j>", "<C-w>j")
+-- map("n", "<C-k>", "<C-w>k")
+-- map("n", "<C-l>", "<C-w>l")
+
+-- Using tmux to split navigate
+map("n", "<C-h>", "<cmd>TmuxNavigateLeft<CR>")
+map("n", "<C-l>", "<cmd>TmuxNavigateRight<CR>")
+map("n", "<C-j>", "<cmd>TmuxNavigateDown<CR>")
+map("n", "<C-k>", "<cmd>TmuxNavigateUp<CR>")
 
 -- I always confuse G and gg.
 -- With this mapping, G goes to the bottom of the buffer as usual - unless the
