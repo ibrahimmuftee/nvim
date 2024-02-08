@@ -1,19 +1,6 @@
 return {
-    "echasnovski/mini.comment",
-    cond = not vim.g.vscode,
+    'echasnovski/mini.nvim', 
     version = false,
-    dependencies = {
-        "nvim-treesitter/nvim-treesitter",
-        "JoosepAlviste/nvim-ts-context-commentstring",
-    },
-    event = "VeryLazy",
-    opts = {
-        hooks = {
-            pre = function()
-                require("ts_context_commentstring.internal").update_commentstring({})
-            end,
-        },
-    },
     config = function(_, opts)
         -- I'm not sure why this is requireed. I thought Lazy.nvim didn't require the
         -- config key if the only line in the function was to call setup().

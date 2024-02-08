@@ -1,7 +1,3 @@
--- formatter.nvim
--- Lua-based, asynchronous wrapper for various formatters
--- https://github.com/mhartington/formatter.nvim
-
 return {
     "mhartington/formatter.nvim",
     cmd = { "Format", "FormatLock", "FormatWrite", "FormatWriteLock" },

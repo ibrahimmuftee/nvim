@@ -1,6 +1,12 @@
+-- Setting leader key just in case
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- Sourcing regular nvim settings/keybindings
+require("ibrahim.set")
+require("ibrahim.keys")
+
+-- Bootstrapping lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -15,12 +21,3 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
-
-require("ibrahim.settings")
-require("ibrahim.keymaps")
-
-if vim.g.vscode then
-    require("ibrahim.vscode")
-else
-    require("ibrahim.non_vscode")
-end

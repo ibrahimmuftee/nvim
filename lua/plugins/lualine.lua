@@ -1,7 +1,6 @@
 return {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
-    cond = not vim.g.vscode,
     dependencies = {
         "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
     },

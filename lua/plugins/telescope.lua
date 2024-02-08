@@ -1,34 +1,8 @@
-local uname = vim.loop.os_uname()
-
-_G.OS = uname.sysname
-_G.IS_MAC = OS == "Darwin"
-_G.IS_LINUX = OS == "Linux"
-_G.IS_WINDOWS = OS:find("Windows") and true or false
-_G.IS_WSL = IS_LINUX and uname.release:find("Microsoft") and true or false
-
-local has_make = (1 == vim.fn.executable("make"))
-local fzf_build_command = "make"
-if not has_make then
-    if _G.IS_WINDOWS then
-        -- On Windows, telescope-fzf-native can be built with either
-        -- MinGW make or a combination of cmake and the Microsoft C++ build
-        -- tools. If make isn't available, try the latter.
-        fzf_build_command =
-            "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build"
-    else
-        error(
-            "telescope-fzf-native requires the `make` command to run. On Windows, download and install it from the MinGW project."
-        )
-    end
-end
-
 local function tele_builtin(name, opts)
     return function()
         require("telescope.builtin")[name](opts)
     end
 end
-
-local directories_in_work_trees = {}
 
 local function project_files()
     -- Use the git_files picker when possible, but fall back to the find_files picker
@@ -54,11 +28,10 @@ return {
         "nvim-lua/plenary.nvim",
         {
             "nvim-telescope/telescope-fzf-native.nvim",
-            build = fzf_build_command,
+            build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
         },
         "nvim-telescope/telescope-ui-select.nvim",
     },
-    cond = not vim.g.vscode,
     keys = {
         { "<C-p>", tele_builtin("find_files"), desc = "Find files" },
         -- { "<C-p>", project_files, desc = "Find files" },
@@ -69,9 +42,6 @@ return {
         { "<leader>sm", tele_builtin("marks"), desc = "[S]earch [m]arks" },
         { "<leader>sr", tele_builtin("resume"), desc = "[S]earch [r]esume previous" },
 
-        "gr",
-        "<leader>sd",
-        "<leadre>sn",
     },
     opts = function()
         local telescopeConfig = require("telescope.config")

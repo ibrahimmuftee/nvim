@@ -1,8 +1,4 @@
 local opt = vim.opt
-local os = require("ibrahim.os")
-
--- Don't highlight all search results when searching for text
--- opt.hlsearch = false
 
 -- Begin searching as I type a search string instead of waiting for me to press Enter
 opt.incsearch = true
@@ -33,6 +29,7 @@ opt.mouse = "a"
 -- Tab settings
 opt.tabstop = 4
 opt.softtabstop = 4
+opt.shiftwidth = 0
 opt.expandtab = true
 
 -- Automatically set the same indent level on a new line
@@ -64,27 +61,9 @@ opt.signcolumn = "yes"
 -- Colored columns at 72 and 88 are for line lengths, and are based on
 -- Python conventions. Docstrings in Python should terminate at 72
 -- characters, and 88 is the max line length for the Black formatter.
-opt.colorcolumn = { 72, 88 }
+-- opt.colorcolumn = { 72, 88 }
+opt.colorcolumn = "80"
 
 -- Set completeopt to have a better completion experience
 opt.completeopt = "menuone,noselect"
 
-
--- Set up diagnostics
-local signs = require("ibrahim.icons").diagnostics
-for type, icon in pairs(signs) do
-    local hl = "DiagnosticSign" .. type
-    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
-vim.diagnostic.config({
-    underline = true,
-    update_in_insert = false,
-    severity_sort = true,
-    float = {
-        source = "always",
-    },
-})
-
-if os.IS_WINDOWS then
-    require("ibrahim.settings_windows")
-end
