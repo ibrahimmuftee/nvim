@@ -5,4 +5,5 @@
 return {
     -- Detect tabstop and shiftwidth automatically
     "tpope/vim-sleuth",
+    "Glench/Vim-Jinja2-Syntax",
 }
