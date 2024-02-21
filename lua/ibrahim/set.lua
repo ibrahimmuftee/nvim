@@ -61,8 +61,8 @@ opt.signcolumn = "yes"
 -- Colored columns at 72 and 88 are for line lengths, and are based on
 -- Python conventions. Docstrings in Python should terminate at 72
 -- characters, and 88 is the max line length for the Black formatter.
--- opt.colorcolumn = { 72, 88 }
-opt.colorcolumn = "80"
+opt.colorcolumn = { 72, 88 }
+-- opt.colorcolumn = "80"
 
 -- Set completeopt to have a better completion experience
 opt.completeopt = "menuone,noselect"
