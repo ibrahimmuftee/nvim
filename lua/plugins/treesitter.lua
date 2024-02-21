@@ -9,7 +9,7 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     opts = {
         -- List of parsers to install automatically
-        ensure_installed = { "bash", "javascript", "json", "lua", "python", "typescript", "vim", "vimdoc" },
+        ensure_installed = { "bash", "javascript", "json", "lua", "python", "html", "typescript", "vim", "vimdoc" },
         highlight = {
             enable = true,
             -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
